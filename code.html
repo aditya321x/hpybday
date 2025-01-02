@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        /* Global styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fceabb);
+            background-size: 300% 300%;
+            animation: gradient 15s ease infinite;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Updated login styles */
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #2a2a72, #009ffd);
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .login-form {
+            background: #fff;
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .login-form h1 {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .login-form input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1em;
+        }
+
+        .login-form input:focus {
+            border-color: #009ffd;
+            outline: none;
+        }
+
+        .login-form button {
+            background: #009ffd;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .login-form button:hover {
+            background: #007bbd;
+            transform: scale(1.05);
+        }
+
+        .login-form button:active {
+            transform: scale(0.98);
+        }
+
+        .login-form small {
+            display: block;
+            margin-top: 15px;
+            color: #666;
+        }
+
+        /* Main content */
+        #main-content {
+            display: none;
+        }
+
+        header {
+            text-align: center;
+            padding: 2em;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            margin: 50px auto;
+            max-width: 800px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        header h1 {
+            font-family: 'Pacifico', cursive;
+            color: #ff6f61;
+            font-size: 3.5em;
+            margin-bottom: 0.5em;
+            animation: slideUp 1s ease-out;
+        }
+
+        header p {
+            font-size: 1.5em;
+            color: #555;
+        }
+
+        section {
+            padding: 4em 2em;
+            animation: fadeIn 1.5s ease-in-out;
+            text-align: center;
+        }
+
+        .gallery img {
+            width: 100%;
+            max-width: 300px;
+            margin: 15px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .message {
+            text-align: center;
+            font-size: 1.2em;
+            background: #fff;
+            margin: 1.5em auto;
+            padding: 1.5em;
+            border-radius: 15px;
+            max-width: 600px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 1em;
+            background: #222;
+            color: #fff;
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container" id="login-page">
+        <form class="login-form" id="login-form">
+            <h1>Welcome </h1>
+            <input type="text" id="username" placeholder="Enter Your Username" required>
+            <input type="password" id="password" placeholder="Enter Your Password" required>
+            <button type="button" onclick="validateLogin()">Login</button>
+        </form>
+    </div>
+
+    <div id="main-content">
+        <header>
+            <h1>Happy Birthday, Suvetha!</h1>
+            <p>A day to celebrate your incredible journey and the beautiful moments to come.</p>
+        </header>
+
+        <section>
+            <h2>Countdown for Your Special Day</h2>
+            <p id="countdown">Loading...</p>
+        </section>
+
+        <section class="gallery">
+            <h2>Our Memories</h2>
+            <img src="img 1.png" alt="Memory 1">
+            <img src="img 2.png" alt="Memory 2">
+            <img src="img 3.png" alt="Memory 3">
+        </section>
+
+        <section>
+            <h2>Messages for You</h2>
+            <div class="message">Happy Birthday, my love! You light up my life. 💖</div>
+            <div class="message">I am grateful for every moment we share. Here's to more memories! 🎉</div>
+            <div class="message">I am always with your journey! 🎉</div>
+            <div class="message">I love you not because of who you are, but because of who I am when I am with you! 🎉</div>
+            <div class="message">Every love story is beautiful, but ours is my favorite! 🎉</div>
+            <div class="message">You are the source of my joy, the center of my world, and the whole of my heart 🎉</div>
+            <div class="message">In your smile, I see something more beautiful than the stars! 🎉</div>
+            <div class="message">You are the poem I never knew how to write, and this life is the story I always wanted to tell! 🎉</div>
+            <div class="message">I love you more than yesterday, but not as much as tomorrow 🎉</div>
+        </section>
+
+        <footer>
+            <p>Created with endless love by Aditya</p>
+        </footer>
+    </div>
+
+    <script>
+        const countdownElement = document.getElementById('countdown');
+        const targetDate = new Date('2025-01-25T00:00:00');
+
+        function updateCountdown() {
+            const now = new Date();
+            const diff = targetDate - now;
+
+            if (diff <= 0) {
+                countdownElement.textContent = 'Happy Birthday!!! 🎉';
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((diff / (1000 * 60)) % 60);
+            const seconds = Math.floor((diff / 1000) % 60);
+
+            countdownElement.textContent = `${days} Days, ${hours} Hours, ${minutes} Minutes, ${seconds} Seconds`;
+        }
+
+        setInterval(updateCountdown, 1000);
+
+        function validateLogin() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === 'adisuvi' && password === 'love4ever') {
+                document.getElementById('login-page').style.display = 'none';
+                document.getElementById('main-content').style.display = 'block';
+            } else {
+                alert('Incorrect Username or Password. Please try again.');
+            }
+        }
+    </script>
+</body>
+</html>
